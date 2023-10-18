@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>payment gateway integration</title>
+    <script src="https://kit.fontawesome.com/0b546e6c3d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+    
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="./45.png" alt=""></a>
+        <p>Shivprakash Yadav</p>
+        <div id="menu-bar" class="fas fa-bars"></div>
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./contact.html">contact</a>
+        <a href="./payment.html">Payment</a>
+    </nav>
+    </header>
+<section class="home" id="home">
+<div class="content">
+    <h1>help the poor children <br> to make him happy</h1>
+</div>
+<a href="./payment.html" class="btn">Donate Here</a>
+</section>
+   <section class="about" id="about">
+    <div class="content1">
+        <h1>About</h1>
+    
+    </div>
+    <div class="image">
+    <div class="img1">
+        <img src="./3.png" alt="">
+        <div class="layer">
+            <i class="fa-solid fa-droplet"></i>
+            <h2>4.4 millons</h2>
+            <p>children have access to basic handwashing system at an education facility</p>
+        </div>
+    </div>
+    <div class="img1">
+        <img src="./4.png" alt="">
+        <div class="layer">
+            <i class="fa-solid fa-hospital"></i>
+            <h2>83,332</h2>
+            <p>people reached through COVID-19 Emergency Response</p>
+        </div>
+    </div>
+    <div class="img1">
+        <img src="./5.png" alt="">
+        <div class="layer">
+            <i class="fa-solid fa-bowl-food"></i>
+            <h2>73,532</h2>
+            <p>people do not have proper diet</p>
+        </div>
+       
+    </div>
+    <div class="img1">
+        <img src="./6.png" alt="">
+        <div class="layer">
+            <i class="fa-solid fa-bowl-food"></i>
+            <h2>83,332</h2>
+            <p>children aged 6-18 completed the Life Skills Education for Transformation (LSET) modules</p>
+        </div>
+    </div>
+    <div class="img1">
+        <img src="./7.png" alt="">
+        <div class="layer">
+            <i class="fa-solid fa-hospital"></i>
+            <h2>8</h2>
+            <p>children with disabilities are part of World Vision India programmes</p>
+        </div>
+    </div>
+    <div class="img1">
+        <img src="./8.png" alt="">
+        <div class="layer">
+            <i class="fa-solid fa-house"></i>
+            <h2>83,</h2>
+            <p>children and youth participated in actions that support ending violence against children</p>
+        </div>
+    </div>
+</div>
+   </section>
+   <section class="payment" id="payment">
+    <div class="container">
+        <div class="container2">
+            <div class="content8">
+                <h1>Donate, Celebrate, Communities Elevate.</h1>
+                
+                <form class="set"><script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_MpPcvBLfx68lP0" async> </script> </form>
+                <p>“Donate and be the sunshine in someone’s life during the storm. Your kindness can make a world of difference.”</p>
+            </div>
+        </div>
+    </div>
+ </section>
+
+   <section class="contact" id="contact">
+    <div class="content1">
+        <h1>Contact me</h1>
+    
+    </div>
+    <div class="form" >
+        <form name="submit-to-google-sheet">
+        <input type="text" id="name" name="name" placeholder="enter your name" required>
+        <input type="text" id="email" name="email" placeholder="enter your email" required>
+        <input type="contact" id="number" name="number" placeholder="enter your contact no" required>
+        <input type="text" id="address" name="address" placeholder="enter your address">
+  Gender:  <input type="radio" name="gender" value="male" required> male
+    <input type="radio" name="gender" value="female" required> female
+    <input type="radio" name="gender" value="other" required> other
+   <br> DOB:<input type="date" name="date of bith" > 
+   <input type="checkbox" required>are you comforttable
+   <button class="btn">submit now</button>
+</form>
+<span id="send"></span>
+    </div>
+   
+   </section>
+   <section class="footer" id="footer">
+    <div class="box">
+        <div class="content9">
+            <h1>FAQs  | Terms and use</h1>
+           
+            <a href="http://instagram.com/shivprakash1632" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="http://fackbook.com/shivprakash1632" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/shiv-yadav-340106238" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        
+    </div>
+    <div class="box2">
+        <p>© World  India, No. 15aa55, VOC Main Road, bhasstand, Chennai-147024. Contact Number: 9555270747 </p>
+    </div>
+   </section>
+   <script src="./home.js"></script>
+   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzAAn3RTR6N3dW3p598ae1b5b1ZIwOvJQsb8QCFkCwx43ZwjrSe9C7hdB1xMqX25K-xew/exec'
+    const form = document.forms['submit-to-google-sheet']
+  const send=document.getElementById("send")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            send.innerHTML="form Submitted successfully";
+            setTimeout(function(){
+                send.innerHTML="";
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>

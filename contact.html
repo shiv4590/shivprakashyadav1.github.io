@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment gateway Integration</title>
+    <script src="https://kit.fontawesome.com/0b546e6c3d.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo"><img src="./45.png" alt=""></a>
+        <p>Shivprakash Yadav</p>
+        <div id="menu-bar" class="fas fa-bars"></div>
+    <nav class="navbar">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="#contact">contact</a>
+        <a href="./payment.html">Payment</a>
+    </nav>
+    </header>
+    <section class="contact" id="contact">
+        <div class="content1">
+            <h1>Contact me</h1>
+        
+        </div>
+        <div class="form">
+            <form name="submit-to-google-sheet">
+            <input type="text" id="name" name="name" placeholder="enter your name" required>
+            <input type="text" id="email" name="email" placeholder="enter your email" required>
+            <input type="contact" id="number" name="number" placeholder="enter your contact no" required>
+            <input type="text" id="address" name="address" placeholder="enter your address">
+      Gender:  <input type="radio" name="gender" value="male" required> male
+        <input type="radio" name="gender" value="female" required> female
+        <input type="radio" name="gender" value="other" required> other
+       <br> DOB:<input type="date" name="date of bith" > 
+       <input type="checkbox" required>are you comforttable
+       <button class="btn">submit now</button>
+    </form>
+    <span id="send"></span>
+        </div>
+       </section>
+       <section class="footer" id="footer">
+        <div class="box">
+            <div class="content9">
+                <h1>FAQs  | Terms and use</h1>
+                <p>Shivprakash Yadav</p>
+                <a href="http://instagram.com/shivprakash1632" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="http://fackbook.com/shivprakash1632" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://www.linkedin.com/in/shiv-yadav-340106238" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            
+        </div>
+        <div class="box2">
+            <p>© World  India, No. 15aa55, VOC Main Road, bhasstand, Chennai-147024. Contact Number: 9555270747 </p>
+        </div>
+       </section>
+       <script src="./home.js"></script>
+      
+       <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzAAn3RTR6N3dW3p598ae1b5b1ZIwOvJQsb8QCFkCwx43ZwjrSe9C7hdB1xMqX25K-xew/exec'
+        const form = document.forms['submit-to-google-sheet']
+      const send=document.getElementById("send")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                send.innerHTML="form Submitted successfully"
+                setTimeout(function(){
+                    send.innerHTML=""
+                },5000);
+                form.reset()
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
+</body>
+</html>
